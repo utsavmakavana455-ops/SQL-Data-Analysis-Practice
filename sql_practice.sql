@@ -216,3 +216,64 @@ SELECT
     ) AS previous_order_amount
 FROM orders
 ORDER BY customer_name, order_date;
+
+
+# 11. Find the second-highest order amount
+SELECT MAX(amount) AS second_highest_amount
+FROM orders
+WHERE amount < (SELECT MAX(amount) FROM orders);
+
+#12. Find customers who placed more than 10 orders
+SELECT
+    customer_name,
+    COUNT(*) AS total_orders
+FROM orders
+GROUP BY customer_name
+HAVING COUNT(*) > 10;
+
+#13. Find the highest-selling product category
+SELECT
+    category,
+    SUM(amount) AS total_sales
+FROM orders
+GROUP BY category
+ORDER BY total_sales DESC
+LIMIT 1;
+
+#14. Find the average order amount across all orders
+SELECT ROUND(AVG(amount), 2) AS average_order_amount
+FROM orders;
+
+#15. Find customers whose total spending is above the average customer spending
+SELECT
+    customer_name,
+    SUM(amount) AS total_spending
+FROM orders
+GROUP BY customer_name
+HAVING SUM(amount) > (
+    SELECT AVG(customer_total)
+    FROM (
+        SELECT SUM(amount) AS customer_total
+        FROM orders
+        GROUP BY customer_name
+    ) AS customer_sales
+)
+ORDER BY total_spending DESC;
+
+#16. Find the top 3 highest-value orders in each city
+
+SELECT *
+FROM (
+    SELECT
+        order_id,
+        customer_name,
+        city,
+        amount,
+        ROW_NUMBER() OVER (
+            PARTITION BY city
+            ORDER BY amount DESC
+        ) AS city_rank
+    FROM orders
+) AS ranked_orders
+WHERE city_rank <= 3
+ORDER BY city, city_rank;
