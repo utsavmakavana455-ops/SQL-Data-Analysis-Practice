@@ -4,7 +4,7 @@
 
 This project contains SQL practice using a **100-row e-commerce orders dataset**.
 
-The goal was to practice SQL skills commonly used in **Data Analyst** roles, including filtering, aggregation, grouping, conditional logic, and window functions.
+The goal is to develop practical SQL and data analysis skills by solving real-world business questions using **MySQL**.
 
 ## Dataset
 
@@ -19,23 +19,29 @@ The `orders` table contains:
 * Amount
 * Order Date
 
-## SQL Skills Practiced
+## SQL Topics Covered
 
 * SELECT
 * WHERE
 * ORDER BY
+* LIMIT
 * SUM()
 * AVG()
-* MIN() / MAX()
+* COUNT()
+* MAX()
 * GROUP BY
 * HAVING
 * CASE WHEN
-* LIMIT
+* Subqueries
 * RANK()
+* ROW_NUMBER()
 * LAG()
-* Window Functions
+* PARTITION BY
+* Date & aggregation analysis
 
 ## Practice Questions
+
+### Basic & Aggregation
 
 1. Find orders above €500
 2. Calculate total sales
@@ -48,29 +54,50 @@ The `orders` table contains:
 9. Rank customers by total spending
 10. Find each customer's previous order
 
+### Intermediate & Advanced
+
+11. Find the second-highest order amount
+12. Find customers who placed more than 10 orders
+13. Find the highest-selling product category
+14. Calculate the average order amount
+15. Find customers whose spending is above average customer spending
+16. Find the top 3 highest-value orders in each city
+
 ## Key Learning
 
-This project helped me practice transforming raw order data into useful business insights using SQL.
+Through this project, I practiced using SQL to:
 
-I focused on writing queries that answer practical business questions rather than only practicing individual SQL commands.
+* Analyze sales performance
+* Identify high-value orders
+* Compare customer spending
+* Analyze sales by city and category
+* Filter aggregated results
+* Use subqueries for advanced analysis
+* Rank records using window functions
+* Analyze the top records within each city
 
 ## Tools
 
-* MySQL
-* MySQL Workbench
-* SQL
+* **MySQL**
+* **MySQL Workbench**
+* **SQL**
 
+## Project Structure
+
+```text
+SQL-Data-Analysis-Practice/
+│
+├── README.md
+├── orders_100_rows.sql
+└── sql_practice_queries.sql
+```
 
 ## Outcome
 
-Through this project, I strengthened my ability to:
+This project helped strengthen my practical SQL skills and my ability to convert raw business data into meaningful insights.
 
-* Analyze sales data
-* Aggregate business metrics
-* Compare customers and cities
-* Filter grouped results
-* Categorize data using CASE
-* Rank business results
-* Analyze previous records using window functions
+I am continuing to expand this project with more advanced SQL queries, including **CTEs, window functions, date analysis, and business reporting**.
 
-This project is part of my ongoing **Data Analytics and SQL learning journey**.
+## Skills Demonstrated
+
+**SQL | MySQL | Data Analysis | Data Cleaning | Aggregation | Subqueries | Window Functions | Business Analysis**
